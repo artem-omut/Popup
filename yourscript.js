@@ -12,16 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
 					const MESSAGE_DATA = data.messages[0];
 					function createPopup() {
 						const POPUP = document.createElement('div');
-						POPUP.classList.add('popup');
+						POPUP.classList.add('artem_test_popup');
 						POPUP.innerHTML = `
-							<div class="header">
-								<img class="picture" src=${MESSAGE_DATA.image}>
-								<div class="title">
-									<span class="name">${MESSAGE_DATA.name}</span>
-									<span class="work">${MESSAGE_DATA.title}</span>
+							<div class="artem_test_header">
+								<img class="artem_test_picture" src=${MESSAGE_DATA.image}>
+								<div class="artem_test_title">
+									<span class="artem_test_name">${MESSAGE_DATA.name}</span>
+									<span class="artem_test_work">${MESSAGE_DATA.title}</span>
 								</div>
 							</div>
-							<div class="content">
+							<div class="artem_test_content">
+								<img class="artem_test_vector_pict" src="https://svgshare.com/i/hU5.svg">
 								<p>${MESSAGE_DATA.message}</p>
 							</div>
 						`;
@@ -29,41 +30,41 @@ document.addEventListener("DOMContentLoaded", function () {
 					}
 					function createBtn(img_src) {
 						const POPUP_BTN = document.createElement('button');
-						POPUP_BTN.classList.add('btn');
+						POPUP_BTN.classList.add('artem_test_btn');
 						const POPUP_BTN_IMG = document.createElement('img');
 						POPUP_BTN_IMG.src = img_src;
-						POPUP_BTN_IMG.classList.add('btn__picture');
+						POPUP_BTN_IMG.classList.add('artem_test_btn__picture');
 						POPUP_BTN.append(POPUP_BTN_IMG);
 						return POPUP_BTN;
 					}
 					const CLOSE_POPUP = createBtn("https://svgshare.com/i/hKK.svg");
 					const CLOSE_POPUP_SEC = createBtn("https://svgshare.com/i/hLL.svg");
-					CLOSE_POPUP_SEC.classList.add('newbtn');
+					CLOSE_POPUP_SEC.classList.add('artem_test_newbtn');
 					const OPEN_POPUP = createBtn("https://svgshare.com/i/hLM.svg");
-					OPEN_POPUP.classList.add('hide')
+					OPEN_POPUP.classList.add('artem_test_hide');
 
 					CLOSE_POPUP_SEC.addEventListener("click", function () {
-						document.querySelector('.popup').classList.add('hide');
-						CLOSE_POPUP.classList.add('hide');
-						CLOSE_POPUP_SEC.classList.add('hide');
-						OPEN_POPUP.classList.remove('hide');
+						document.querySelector('.artem_test_popup').classList.add('artem_test_hide');
+						CLOSE_POPUP.classList.add('artem_test_hide');
+						CLOSE_POPUP_SEC.classList.add('artem_test_hide');
+						OPEN_POPUP.classList.remove('artem_test_hide');
 					});
 					CLOSE_POPUP.addEventListener("click", function () {
-						document.querySelector('.popup').classList.add('hide');
-						CLOSE_POPUP.classList.add('hide');
-						CLOSE_POPUP_SEC.classList.add('hide');
-						OPEN_POPUP.classList.remove('hide');
+						document.querySelector('.artem_test_popup').classList.add('artem_test_hide');
+						CLOSE_POPUP.classList.add('artem_test_hide');
+						CLOSE_POPUP_SEC.classList.add('artem_test_hide');
+						OPEN_POPUP.classList.remove('artem_test_hide');
 					});
 					OPEN_POPUP.addEventListener("click", function () {
-						document.querySelector('.popup').classList.remove('hide');
-						CLOSE_POPUP.classList.remove('hide');
-						CLOSE_POPUP_SEC.classList.remove('hide');
-						OPEN_POPUP.classList.add('hide');
+						document.querySelector('.artem_test_popup').classList.remove('artem_test_hide');
+						CLOSE_POPUP.classList.remove('artem_test_hide');
+						CLOSE_POPUP_SEC.classList.remove('artem_test_hide');
+						OPEN_POPUP.classList.add('artem_test_hide');
 					});
 					document.querySelector('body').appendChild(createPopup());
 					document.querySelector('body').appendChild(CLOSE_POPUP);
 					document.querySelector('body').appendChild(OPEN_POPUP);
-					document.querySelector('.header').appendChild(CLOSE_POPUP_SEC);
+					document.querySelector('.artem_test_header').appendChild(CLOSE_POPUP_SEC);
 				});
 				const style = document.createElement('style');
 
@@ -81,8 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					max-width: 1100px;
 					margin: 0 auto;
 				}
-
-				.popup {
+				.artem_test_popup {
 					position: fixed;
 					bottom: 0;	
 					right: 0;
@@ -91,13 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
 					max-height: 100%;
 					background-color: #fff;
 					margin: 40px;
+					border-radius: 4px;
 				}
 				
-				.hide {
+				.artem_test_hide {
 					display: none;
 				}
 				
-				.picture {
+				.artem_test_picture {
 					object-fit: cover;
 					object-position: center;
 					height: 35px;
@@ -106,36 +107,40 @@ document.addEventListener("DOMContentLoaded", function () {
 					margin: 0 2% 0 6%;
 				}
 				
-				.header {
+				.artem_test_header {
+					position: relative;
 					display: flex;
 					background-color: #f3f3f3;
 					padding: 10px 7px;
+					border-radius: 4px 4px 0px 0px;
 				}
 				
-				.name, .work {
+				.artem_test_name, .artem_test_work {
 					display: block;
+					font-family: "Arial";
 				}
 				
-				.name{
-					font-size: 0.94em;
+				.artem_test_name{
+					font-size: 0.9em;
 				}
-				.work{
-					font-size: 0.7em;
+				.artem_test_work{
+					font-size: 0.68em;
 					color: rgb(92, 92, 92);
 				}
 				
-				.title {
+				.artem_test_title {
 					margin-left: 5%;
 					padding-top: 2px;
 				}
 				
-				.content {
+				.artem_test_content {
+					position: relative;
 					padding: 7%;
 					color: #646464;
+					font-family: "Arial";
 				}
 				
-				
-				.btn {
+				.artem_test_btn {
 					position: fixed;
 					bottom: 25px;
 					right: 25px;
@@ -148,17 +153,23 @@ document.addEventListener("DOMContentLoaded", function () {
 					padding: 8px;
 				}
 				
-				
-				.btn__picture {
+				.artem_test_btn__picture {
 					width: 100%;
 					height: 100%;
 				}
 				
-				.newbtn {
-					position: relative;
-					top: 2px;
+				.artem_test_newbtn {
+					position: absolute;
+					top: 11px;
 					background-color: transparent;
-					right: -53px;
+					right: 11px
+				}
+
+				.artem_test_vector_pict {
+					position: absolute;
+					width: 10%;
+					top: -12px;
+					left: 45px;
 				}
 				`;
 				document.head.appendChild(style);
@@ -166,3 +177,4 @@ document.addEventListener("DOMContentLoaded", function () {
 				console.log('Fetch Error', err);
 			});
 });
+
